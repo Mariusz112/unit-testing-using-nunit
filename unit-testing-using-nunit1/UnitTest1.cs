@@ -13,6 +13,15 @@ namespace unit_testing_using_nunit1
         {
             _test = new Test();
         }
+        [TestCase(2)]
+        [TestCase(7)]
+        [TestCase(83)]
+        public void IsPrimeTrue(int value)
+        {
+            var result = _test.IsPrime(value);
+
+            Assert.IsTrue(result, " prime number");
+        }
 
         [TestCase(1)]
         [TestCase(12)]
@@ -21,17 +30,9 @@ namespace unit_testing_using_nunit1
         {
             var result = _test.IsPrime(value);
 
-            Assert.IsFalse(result, $"{value} should not be prime");
+            Assert.IsFalse(result, " not prime number");
         }
 
-        [TestCase(2)]
-        [TestCase(7)]
-        [TestCase(83)]
-        public void IsPrimeTrue(int value)
-        {
-            var result = _test.IsPrime(value);
 
-            Assert.IsTrue(result, $"{value} should be prime");
-        }
     }
 }
